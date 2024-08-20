@@ -62,12 +62,12 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
   if (!CHANNEL_ID) return;
 
   // VCに参加すると表示
-  if (newState.channel) {
-    await channel.send(`**${newState.member.displayName}** が、<#${newState.channel.id}>に参加しました。`);
+  if (oldState.channelId === null && newState.channelId !== null) {
+    await channel.send(`**${newState.member.displayName}** が参加しました。<#${newState.channel.id}>`);
 
   // VCから退出すると表示
-  } else if (oldState.channel) {
-    await channel.send(`**${newState.member.displayName}** が、<#${oldState.channel.id}>から退出しました。`);
+  } else if (oldState.channelId !=null && newState.channelId === null) {
+    await channel.send(`**${newState.member.displayName}** が退出しました。<#${oldState.channel.id}>`);
   }
 });
 
