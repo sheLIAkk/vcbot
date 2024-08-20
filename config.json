@@ -1,5 +1,5 @@
 {
-	"token": "Discord BOT のトークン",
+  "token": "Discord BOT のトークン",
   "applicationId": "Discord BOT のアプリケーションID",
   "guildId": "サーバーのID"
 }
